@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+	<title>IPFS 图床</title>
+	<meta name="keywords" content="IPFS图床,IPFS,去中心化图床,永久图床" />
+	<link rel="shortcut icon" href="https://dd-static.jd.com/ddimg/jfs/t1/177185/2/17997/5801/610cc8caE9131ad0e/01927a81dc549305.png" />
+	<!-- <link rel="stylesheet" href="./static/style.css"> 合并 css-->
+	<style type="text/css">
+		*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}::-webkit-scrollbar{width:7px;height:7px}::-webkit-scrollbar-thumb{border-radius:3.5px;background-color:rgba(50,50,50,0.3)}::-webkit-scrollbar-track{border-radius:3.5px;background-color:rgba(50,50,50,0.1)}html{height:100%}@-webkit-keyframes Gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}@keyframes Gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}body{height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(-45deg, rgba(9,69,138,0.2), rgba(68,155,255,0.7), rgba(117,113,251,0.7), rgba(68,155,255,0.7), rgba(9,69,138,0.2));background-size:400% 400%;-webkit-animation:Gradient 15s ease infinite;animation:Gradient 15s ease infinite;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-family:'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;font-size:14px}.container{display:grid;gap:20px;grid-template-columns:500px 250px;grid-template-rows:500px}.container.start{display:grid;gap:20px;grid-template-columns:250px 500px;grid-template-rows:500px}@-webkit-keyframes slideRight{0%{-webkit-transform:translateX(-50%);transform:translateX(-50%)}100%{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes slideRight{0%{-webkit-transform:translateX(-50%);transform:translateX(-50%)}100%{-webkit-transform:translateX(0);transform:translateX(0)}}@-webkit-keyframes slideLeft{0%{-webkit-transform:translateX(50%);transform:translateX(50%)}100%{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes slideLeft{0%{-webkit-transform:translateX(50%);transform:translateX(50%)}100%{-webkit-transform:translateX(0);transform:translateX(0)}}.upload,.filelist{background:#fff;border-radius:8px;box-shadow:0 2px 12px 0 rgba(0,0,0,0.1);overflow:hidden}.upload .title,.filelist .title{height:45px;line-height:45px;border-bottom:1px solid #f2f6fc;color:#606266;font-weight:500;padding:0 15px;font-size:16px}.upload{-webkit-animation:slideRight 1.5s;animation:slideRight 1.5s;transition:box-shadow 0.35s}.upload .title{display:flex;justify-content:space-between;align-items:center}.copyall button{width: 70px; height: 28px; border-radius: 14px;margin: 0 12px;background-color:#fff;}.upload .title select{height: 28px; padding: 0 5px; border-radius: 14px;}.copyall{display: inline-flex;}#show{width:475px;height:28px;outline:none;border:1px solid #dcdfe6;padding:0 15px;color:#606266;border-radius:14px;font-size:12px;transition:border 0.35s;-webkit-appearance:none}.upload .title input:focus{border-color:#409eff}.upload .content{cursor:pointer;height:calc(100% - 45px);display:flex;align-items:center;justify-content:center;flex-direction:column}.upload .content .icon{width:80px;height:80px;margin-bottom:20px}.upload .content .desc{color:#606266}.upload.dragenter{box-shadow:20px 20px 20px 0 rgba(0,0,0,0.25)}.upload.dragenter .content>*{pointer-events:none}.filelist{-webkit-animation:slideLeft 1.5s;animation:slideLeft 1.5s}.filelist .list{height:calc(100% - 90px);overflow-y:auto;padding:10px;scroll-behavior:smooth}.filelist .list .item{margin-bottom:10px}.filelist .list .item:last-child{margin-bottom:0}.filelist .list .item .file{display:flex;align-items:center;margin-bottom:5px}.filelist .list .item .file .icon{width:45px;height:45px;margin-right:10px}.filelist .list .item .file .desc{flex:1;min-width:0}.filelist .list .item .file .desc__name{font-size:15px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;font-weight:600;color:#606266;margin-bottom:5px}.filelist .list .item .file .desc__size{font-size:12px;color:#909399}.filelist .list .item .file .link{display:flex;align-items:center;justify-content:center;padding:5px;cursor:pointer;margin-left:10px;border-radius:50%;transition:background 0.2s}.filelist .list .item .file .link svg{width:18px;height:18px}.filelist .list .item .file .link:hover{background:#f56c6c50}.filelist .list .item .progress{display:flex;align-items:center;justify-content:space-between;font-size:12px}.filelist .list .item .progress .progress-bar{flex:1;min-width:0}.filelist .list .item .progress .progress-bar .progress-inner{width:0%;height:2px;background:#409eff;border-radius:1px;transition:width 0.2s}.filelist .list .item .progress .progress-bar .progress-inner.success{background:#67c23a}.filelist .list .item .progress .progress-bar .progress-inner.error{background:#f56c6c}.filelist .list .item .progress .progress-status{margin-left:5px}.filelist .list .item .progress .progress-status .icon{display:none;width:14px;height:14px}@media (max-width: 780px){body{height:auto;padding:5vh 0}.container{grid-template-columns:350px;grid-template-rows:400px 150px;}.container.start{grid-template-columns:350px !important;grid-template-rows:150px 400px !important}.upload .content .icon{width:50px;height:50px;margin-bottom:5px;}.copyall button{width: 50px;margin: 0 4px;}#show{width:320px;padding:0 11px;}}.filelist .title{ text-align:center;display:inline-table;line-height:35px;padding:5px 15px;}span.tooltiptext{visibility:hidden;width:178px;background-color:black;color:#fff;text-align:center;border-radius:6px;padding: 5px 0;position:absolute;z-index:1;margin:-75px -100px;}button:active .tooltiptext{visibility:visible;}
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+	<!-- <script src="./static/file.js"></script> 合并 js-->
+	<script>
+		$(() => {
+			$(document).on('paste', event => {
+				let clipboardData = event.clipboardData || window.clipboardData || event.originalEvent.clipboardData; if (!clipboardData || !clipboardData.items) return alert('当前浏览器不支持粘贴上传'); let items = clipboardData.items; let file = null; if (items.length === 0) return alert('剪切板内无内容或不支持桌面文件'); for (let i = 0; i < items.length; i++) { if (items[i].type.indexOf('image') !== -1) { file = items[i].getAsFile(); } }
+				if (!file) return alert('剪切板内无内容或不支持桌面文件'); upload(new Array(file));
+			}); $('.upload .content').on('click', function () { $('#file').click(); }); $('#file').on('change', () => { upload($('#file')[0].files); }); $('#dragbox').on('dragover', e => { e.preventDefault(); }); $('#dragbox').on('dragenter', e => { e.preventDefault(); $('.upload').addClass('dragenter'); }); $('#dragbox').on('dragleave', e => { e.preventDefault(); $('.upload').removeClass('dragenter'); }); $('#dragbox').on('drop', e => { e.preventDefault(); $('.upload').removeClass('dragenter'); let files = e.originalEvent.dataTransfer.files; upload(files); }); function upload(files) {
+				for (let i = 0; i < files.length; i++) {
+					var animateimg = files[i].name; var imgarr = animateimg.split('\\'); var myimg = imgarr[imgarr.length - 1]; var houzui = myimg.lastIndexOf('.'); var ext = myimg.substring(houzui, myimg.length).toUpperCase(); var file = files[i]; if (!file) { return false; }
+					var fileSize = file.size; var maxSize = 5242880 * 20; if (ext != '.PNG' && ext != '.GIF' && ext != '.JPG' && ext != '.JPEG' && ext != '.BMP' && ext != '.SVG' && ext != '.TIF' && ext != '.ICO' && ext != '.3GP' && ext != '.AVI' && ext != '.FLV' && ext != '.MOV' && ext != '.MKV' && ext != '.MP4' && ext != '.MP3' && ext != '.FLAC' && ext != '.WEBP' && ext != '.MPG' && ext != '.MPEG' && ext != '.M3U8' && ext != '.RM' && ext != '.RMVB' && ext != '.TS' && ext != '.wmv' && ext != '.asf' && ext != '.webm' && ext != '.ogg' && ext != '.ACC' && ext != '.M4A' && ext != '.APE' && ext != '.TXT' && ext != '.JSON' && ext != '.DOC' && ext != '.DOCX' && ext != '.XLS' && ext != '.XLSX' && ext != '.CSV' && ext != '.SQL' && ext != '.BAK' && ext != '.PPT' && ext != '.PPTX' && ext != '.ZIP' && ext != '.RAR' && ext != '.7Z' && ext != '.GZ' && ext != '.TAR' && ext != '.ISO' && ext != '.MD' && ext != '.SH') { parent.alert('文件类型错误,请上传图片类型'); $('#file').val(null); return false; } else if (parseInt(fileSize) >= parseInt(maxSize)) { parent.alert('上传的文件不能超过' + maxSize / 1024 / 1024 + 'MB'); return false; } else {
+						document.querySelector('.container').classList.add('start')
+						var type = $('#id'); api = 'https://ipfsapi.glitch.me//api/v0/add?pin=true'
+						let formData = new FormData(); formData.append('file', files[i]); let randomClass = Date.now().toString(36); $('.filelist .list').append(`
+						<div class="item ${randomClass}">
+							<div class="file">
+								<svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+									<path d="M961.536 531.251c-0.614-3.481-1.843-7.168-3.891-10.445L827.392 306.79v-28.876c0-10.445 0-20.276 0.205-29.901 0.819-89.703 1.433-174.285-101.376-179.2H303.923c-33.587 0-58.368 8.601-76.185 26.624-30.72 30.925-30.31 79.257-29.696 140.288 0 8.601 0.204 17.408 0.204 26.419v38.093c-2.867 2.253-5.324 4.915-7.168 8.192L64.717 523.879c-1.639 2.867-2.663 5.734-3.277 8.806-6.144 12.288-9.626 26.01-9.626 40.345v290.407c0 50.585 41.984 91.75 93.594 91.75h733.184c51.61 0 93.594-41.165 93.594-91.75V573.03c-0.205-14.95-4.096-29.286-10.65-41.779zM861.389 481.28h-33.997v-55.91l33.997 55.91zM271.565 138.65c5.53-5.53 16.384-8.397 32.358-8.397h420.045c36.25 1.843 42.803 11.264 41.78 117.145 0 9.83-0.206 19.866-0.206 30.516V481.28H664.576c-16.998 0-30.925 13.722-30.925 30.925 0 64.307-54.681 116.736-122.06 116.736S389.53 576.512 389.53 512.205c0-16.999-13.722-30.925-30.925-30.925H259.89V262.144c0-9.42 0-18.432-0.205-27.034-0.41-43.008-0.819-83.558 11.879-96.46z m-73.523 279.552v63.078h-36.864l36.864-63.078z m712.294 445.44c0 16.179-14.54 30.105-31.949 30.105H145.203c-17.203 0-31.949-13.721-31.949-30.105V573.03c0-16.179 14.541-30.105 31.95-30.105h185.548c15.155 83.763 90.522 147.456 181.043 147.456s165.888-63.898 181.043-147.456h185.55c17.202 0 31.948 13.721 31.948 30.105v290.612z" p-id="14163" fill="#909399"></path>
+									<path d="M385.638 278.528H655.77c16.998 0 30.924-13.722 30.924-30.925s-13.721-30.925-30.924-30.925H385.638c-16.998 0-30.924 13.722-30.924 30.925s13.926 30.925 30.924 30.925z m-30.924 70.451c0 16.999 13.721 30.925 30.924 30.925H655.77c16.998 0 30.924-13.722 30.924-30.925 0-17.203-13.721-30.925-30.924-30.925H385.638c-16.998 0-30.924 13.927-30.924 30.925z" p-id="14164" fill="#909399"></path>
+								</svg>
+								<div class="desc">
+									<div class="desc__name">${files[i].name}</div>
+									<div class="desc__size">SIZE:${formatBytes(files[i].size)}</div>
+								</div>
+								<a id="url" href="javascript: void(0);" class="link">
+									<svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+										<path d="M82.603621 941.396379A280.234044 280.234044 0 0 1 0.001138 742.001267a280.063378 280.063378 0 0 1 82.659372-199.110669l145.919675-145.919676a46.535008 46.535008 0 0 1 65.820299 0 46.535008 46.535008 0 0 1 0 65.820298L148.480808 608.710896a187.732916 187.732916 0 0 0-55.352766 133.574814 187.732916 187.732916 0 0 0 55.352766 133.517926 187.732916 187.732916 0 0 0 133.574814 55.352766A187.732916 187.732916 0 0 0 415.289104 875.519192l145.919676-145.919676a46.535008 46.535008 0 0 1 65.820298 0 46.535008 46.535008 0 0 1 0 65.820299l-145.862787 145.919675A280.347821 280.347821 0 0 1 281.998733 1023.998862a280.120266 280.120266 0 0 1-199.395112-82.602483z m292.408239-292.465128a46.42123 46.42123 0 0 1 0-65.820298l208.099093-208.042204a46.478119 46.478119 0 0 1 65.820298 0 46.535008 46.535008 0 0 1 0 65.820298l-208.099093 208.042204a46.42123 46.42123 0 0 1-32.938593 13.653303 46.307453 46.307453 0 0 1-32.824816-13.653303z m354.587656-21.674618a46.535008 46.535008 0 0 1 0-65.820298L875.576081 415.289104a187.732916 187.732916 0 0 0 55.352766-133.517926 187.732916 187.732916 0 0 0-55.352766-133.517925 187.732916 187.732916 0 0 0-133.574814-55.352766 187.334695 187.334695 0 0 0-133.517926 55.352766L462.506777 294.172929a46.591896 46.591896 0 0 1-65.820299 0 46.591896 46.591896 0 0 1 0-65.820299l145.976565-145.919675A279.9496 279.9496 0 0 1 742.001267 0.001138a280.120266 280.120266 0 0 1 199.110668 82.602483A280.290933 280.290933 0 0 1 1023.998862 281.998733a280.120266 280.120266 0 0 1-82.602483 199.110669l-145.919676 145.919676a46.42123 46.42123 0 0 1-32.881704 13.596414 46.535008 46.535008 0 0 1-32.938594-13.368859z" p-id="8129" fill="#909399"></path>
+									</svg>
+								</a>
+								<a title="删除" class="link" onclick="del(this);return false;">
+									<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50.13 50.13" style="enable-background:new 0 0 50.13 50.13;" xml:space="preserve">
+										<g>
+										<path style="fill:#010002;" d="M4.574,13.902h40.982c0.345,0,0.625-0.28,0.625-0.625V8.952c0-0.345-0.28-0.625-0.625-0.625H33.315		V0.625C33.315,0.28,33.035,0,32.69,0H17.442c-0.345,0-0.625,0.28-0.625,0.625v7.702H4.574c-0.345,0-0.625,0.28-0.625,0.625v4.325 C3.949,13.622,4.23,13.902,4.574,13.902z M5.199,9.577h12.242c0.345,0,0.625-0.28,0.625-0.625V1.25h13.998v7.702		c0,0.345,0.28,0.625,0.625,0.625h12.242v3.075H5.199V9.577z"/>
+										<path style="fill:#010002;" d="M11.006,18.06H7.17c-0.345,0-0.625,0.28-0.625,0.625v30.82c0,0.345,0.28,0.625,0.625,0.625h35.791	c0.345,0,0.625-0.28,0.625-0.625v-30.82c0-0.345-0.28-0.625-0.625-0.625h-3.836c-0.345,0-0.625,0.28-0.625,0.625v24.68h-2.537	v-24.68c0-0.345-0.28-0.625-0.625-0.625h-4.324c-0.345,0-0.625,0.28-0.625,0.625v24.68h-2.535v-24.68	c0-0.345-0.28-0.625-0.625-0.625h-4.324c-0.345,0-0.625,0.28-0.625,0.625v24.68h-2.537v-24.68c0-0.345-0.28-0.625-0.625-0.625	h-4.325c-0.345,0-0.625,0.28-0.625,0.625v24.68h-2.537v-24.68C11.631,18.34,11.351,18.06,11.006,18.06z M14.793,44.614	c0.345,0,0.625-0.28,0.625-0.625V19.31h3.074v24.68c0,0.345,0.28,0.625,0.625,0.625h3.787c0.345,0,0.625-0.28,0.625-0.625V19.31	h3.074v24.68c0,0.345,0.28,0.625,0.625,0.625h3.785c0.345,0,0.625-0.28,0.625-0.625V19.31h3.074v24.68	c0,0.345,0.28,0.625,0.625,0.625h3.787c0.345,0,0.625-0.28,0.625-0.625V19.31h2.586v29.57H7.795V19.31h2.586v24.68 c0,0.345,0.28,0.625,0.625,0.625L14.793,44.614L14.793,44.614z"/>
+										</g>
+										</svg>
+								</a>
+							</div>
+							<div class="progress">
+								<div class="progress-bar">
+									<div class="progress-inner"></div>
+								</div>
+								<div class="progress-status">
+									<svg class="icon status-success" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+										<path d="M310.710857 768.292571z m402.578286 0z" p-id="11696" fill="#67C23A"></path>
+										<path d="M512 0C229.376 0 0 229.376 0 512S229.376 1024 512 1024 1024 794.624 1024 512 794.624 0 512 0z m300.178286 373.321143l-354.011429 354.011428c-21.065143 21.065143-55.588571 21.065143-76.653714 0l-169.691429-169.106285c-21.065143-21.065143-21.065143-55.588571 0-76.653715 21.065143-21.065143 55.588571-21.065143 76.653715 0l131.072 131.072 315.392-315.392c21.065143-21.065143 55.588571-21.065143 76.653714 0 21.650286 20.48 21.650286 55.003429 0.585143 76.068572z" p-id="11697" fill="#67C23A"></path>
+									</svg>
+									<svg class="icon status-error" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+										<path d="M733.678921 290.121702c22.43209 22.531789 22.43209 58.921624 0 81.353714L593.403583 511.850453 733.678921 652.125791c20.537825 20.537825 22.531789 53.13913 4.785513 76.069711l-4.785513 5.4834c-22.531789 22.531789-58.921624 22.531789-81.453412 0L511.95017 593.204167 371.674832 733.579204c-20.537825 20.537825-53.13913 22.531789-76.069711 4.785512l-5.383702-4.785512c-22.531789-22.531789-22.531789-58.921624 0-81.453413l140.275339-140.275338L290.321118 371.674813c-20.637523-20.537825-22.731185-53.13913-4.885211-76.169409l4.785512-5.383702c22.531789-22.43209 58.921624-22.43209 81.353715 0l140.275338 140.17564L652.225509 290.121702c20.537825-20.537825 53.039431-22.531789 75.970012-4.785513l5.4834 4.785513zM0.000019 511.850453c0 282.744037 229.206114 511.950151 511.950151 511.950151s511.950151-229.206114 511.950151-511.950151S794.694207 0 511.95017 0 0.000019 229.206114 0.000019 511.850453z" p-id="14360" fill="#F56C6C"></path>
+									</svg>
+								</div>
+							</div>
+							<div class="result" style="display:none">
+							<input value="" id="Imgs_url" >URL</input>
+							<input value="" id="Imgs_html">HTML</input>
+							<input value="" id="Imgs_Ubb">BBCode</input>
+							<input value="" id="Imgs_markdown">Markdown</input>
+							</div>
+							<input id="show" name="show" onclick="oCopy(this)" type="text" value="" readonly style="display:none">
+						</div>
+					`); $.ajax({
+							url: api, type: 'post', dataType: 'json', processData: false, contentType: false, data: formData, xhr: () => { let xhr = $.ajaxSettings.xhr(); if (!xhr.upload) return; xhr.upload.addEventListener('progress', e => { let percent = Math.floor((e.loaded / e.total) * 100); $('.' + randomClass).find('.progress-inner').css('width', percent + '%'); }, false); return xhr; }, success: res => {
+								var imgSrc = 'https://cf-ipfs.com/ipfs/' + res.Hash
+								$('#file').val(null); if (res.code === -1) { $('.' + randomClass).fadeOut(); alert(res.Hash); } else { if (res.Hash) { $('.' + randomClass).find('.progress-inner').addClass('success'); $('.' + randomClass).find('.status-success').show(); $('.' + randomClass).find('#url').attr({ href: imgSrc, target: '_blank' }); $('.' + randomClass).find('#Imgs_url').attr({ value: imgSrc }); $('.' + randomClass).find('#Imgs_html').attr({ value: '<img src="' + imgSrc + '"/>' }); $('.' + randomClass).find('#Imgs_Ubb').attr({ value: '[img]' + imgSrc + '[/img]' }); $('.' + randomClass).find('#Imgs_markdown').attr({ value: '![](' + imgSrc + ')' }); $('.' + randomClass).find('#show').show(); $('.' + randomClass).find('#show').attr({ value: imgSrc }); $('.copyall').show(); var tt = $('.filelist .title').html().replace('上传列表', ''); $('.filelist .title').html(tt); } else { $('.' + randomClass).find('.progress-inner').addClass('error'); $('.' + randomClass).find('.status-error').show(); $('.' + randomClass).find('#show').show(); $('.' + randomClass).find('#show').attr({ value: "上传出错！" }); } }
+							}, fail: () => { $('.' + randomClass).fadeOut(); }
+						});
+					}
+				}
+			}
+			function formatBytes(bytes, decimals = 2) { if (bytes === 0) return '0 Bytes'; const k = 1024; const dm = decimals < 0 ? 0 : decimals; const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']; const i = Math.floor(Math.log(bytes) / Math.log(k)); return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + sizes[i]; }
+		});
+		function del(obj) { var item = obj.parentNode.parentNode; item.parentNode.removeChild(item); }
+		function sel(obj) { for (var i = 0; i < document.querySelectorAll('#Imgs' + obj.id).length; i++) { document.querySelectorAll('#Imgs' + obj.id)[i].parentElement.nextElementSibling.value = document.querySelectorAll('#Imgs' + obj.id)[i].value; } }
+		function chage(obj) { for (var i = 0; i < document.querySelectorAll("#show").length; i++) { var newurl = document.querySelectorAll("#show")[i].value.replace(/https:\/\/([^\/]+)/i, "https://" + obj.value); document.querySelectorAll("#show")[i].value = newurl; document.querySelectorAll(".list .file #url")[i].href = newurl; console.log(newurl); } }
+		function copyAll(obj) {
+			var xkx = ""; for (var i = 0; i < document.querySelectorAll('#show').length; i++) { ; var xkx = xkx + document.querySelectorAll('#show')[i].value + '\n'; }
+			var txa = document.createElement('textarea'); txa.value = xkx; document.body.appendChild(txa); txa.select(); var res = document.execCommand('copy'); document.body.removeChild(txa); console.log('copy success'); console.log(xkx); if (browserRedirect()) { alert('设备类型为手机，有一定几率复制失败！请查看剪切板是否成功复制'); }
+		}
+		function oCopy(obj) { obj.select(); document.execCommand("Copy"); console.log(obj.value); if (browserRedirect()) { alert('设备类型为手机，有一定几率复制失败！请查看剪切板是否成功复制'); } }
+		function browserRedirect() { var sUserAgent = navigator.userAgent.toLowerCase(); var bIsIpad = sUserAgent.match(/ipad/i) == 'ipad'; var bIsIphone = sUserAgent.match(/iphone os/i) == 'iphone os'; var bIsMidp = sUserAgent.match(/midp/i) == 'midp'; var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == 'rv:1.2.3.4'; var bIsUc = sUserAgent.match(/ucweb/i) == 'web'; var bIsCE = sUserAgent.match(/windows ce/i) == 'windows ce'; var bIsWM = sUserAgent.match(/windows mobile/i) == 'windows mobile'; var bIsAndroid = sUserAgent.match(/android/i) == 'android'; if (bIsIpad || bIsIphone || bIsMidp || bIsUc7 || bIsUc || bIsCE || bIsWM || bIsAndroid) { return 1; } }		
+	</script>
+	<meta name="referrer" content="no-referrer" />
+</head>
+
+<body>
+	<input id="file" type="file" multiple="multiple" style="display: none;">
+	<div class="container">
+		<div class="upload">
+			<div class="title">IPFS 图床<small style="font-size:10px;">IPFS 星际文件系统</small><input id="xkx"
+					autocomplete="off" maxlength="16" style="display: none;" placeholder="请上传...">
+			</div>
+			<div class="content" id="dragbox">
+				<svg class="icon" viewBox="0 0 1335 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M1097.060174 392.125217C1073.730783 172.966957 893.261913 0.378435 666.089739 0.378435c-227.127652 0-415.610435 171.920696-430.948174 391.746782C101.910261 415.454609 0 525.356522 0 666.601739c0 149.147826 125.239652 274.476522 274.476522 274.476522h195.828869v-78.669913H274.476522a193.691826 193.691826 0 0 1-195.940174-195.806609c0-102.021565 70.678261-180.580174 172.588522-195.917913l54.561391-8.013913 8.013913-62.553043c16.005565-180.580174 172.588522-321.157565 352.389565-321.157566 180.580174 0 337.029565 141.356522 352.389565 321.157566v62.553043l62.664348 8.013913c101.910261 16.005565 172.477217 93.896348 172.477218 195.917913 0 109.901913-85.904696 195.806609-195.806609 195.806609h-195.917913v78.580869h196.029217c149.147826 0 274.476522-125.261913 274.476522-274.476521 0-141.133913-101.999304-259.072-235.25287-274.387479"
+						p-id="2345" fill="#909399"></path>
+					<path
+						d="M612.218435 364.766609l1.335652 2.003478L389.698783 590.58087l55.229217 55.362782 181.938087-181.938087V1018.88h78.558609v-78.58087h156.471652-156.471652V458.039652l183.808 183.919305 55.340521-55.340522-277.147826-277.058783-55.229217 55.229218z m-141.913044 575.666087h156.471652-156.716521 0.222608z"
+						p-id="2346" fill="#909399"></path>
+				</svg>
+				<p class="desc">点击上传 / 粘贴上传 / 拖拽上传</p>
+				<p class="desc">永久的、去中心化保存和共享文件</p>
+			</div>
+		</div>
+		<div class="filelist">
+			<div class="title">上传列表
+				<div class="copyall" style="display:none">
+					<button title="ipfs.io永久链接国内不能访问| cf-ipfs.com是cloudflare节点 | xkx.me是本站提供节点"
+						style="width:70px;background-color: #d0dbee;">网关<span class="tooltiptext">ipfs.io永久链接国内不能访问|
+							cf-ipfs.com是cloudflare节点 | xkx.me是本站提供节点</span></button>
+					<button onclick="chage(this);" value="ipfs.io" id="ipfs">ipfs.io</button>
+					<button onclick="chage(this);" value="cf-ipfs.com" id="cf-ipfs">cf-ipfs</button>
+					<button onclick="chage(this);" value="ipfs.fleek.co" id="fleek">fleek.co</button>
+					<!-- <button onclick="chage(this);" value="ipfs-1.xkx.me" id="xkx-ipfs">xkx.me</button> -->
+				</div>
+				<div class="copyall" style="display:none">
+					<button onclick="copyAll(this);" name="xkx" id="copyAll"
+						style="width:70px;background-color: #d0dbee;">复制全部</button>
+					<button onclick="sel(this);" name="xkx" id="_url">URL</button>
+					<button onclick="sel(this);" name="xkx" id="_html">HTML</button>
+					<button onclick="sel(this);" name="xkx" id="_Ubb">BBCode</button>
+					<button onclick="sel(this);" name="xkx" id="_markdown">Markdown</button>
+				</div>
+			</div>
+			<div class="list"></div>
+		</div>
+	</div>
+	<div id="footer" style="position:fixed;width: 100%;text-align: center;bottom: 0px;display: block;">
+		<div style="height: 20px">
+			<p style="color:#000;">IP:
+				<script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+				<script>document.write(returnCitySN["cip"])</script>
+				By 以太 
+				©
+				<a style="text-decoration:none;" href="https://github.com/jialezi/img2ipfs">jialezi</a>
+			</p>
+		</div>
+	</div>
+</body>
+
+</html>
